@@ -1,6 +1,7 @@
 Koinos Rest API
 Copyright (C) 2023-2024  Roamin Ro
 Copyright (C) 2023  Greg Thomas Andes
+Copyright (C) 2024 Koinos Group, Inc.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
