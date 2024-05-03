@@ -1,9 +1,16 @@
 import { config } from '@/app.config'
 import { Provider } from 'koilib'
-import { headers } from 'next/headers'
+
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      JSONRPC_URL: string;
+    }
+  }
+}
 
 export function getProvider() {
-  const xJsonRpc = headers().get('X-JSON-RPC-URL') || config.jsonRPC
+  const xJsonRpc = process.env.JSONRPC_URL || config.jsonRPC
 
   return new Provider(xJsonRpc)
 }

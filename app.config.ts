@@ -5,7 +5,7 @@ export type Config = {
 }
 
 export const config: Config = {
-  jsonRPC: 'https://api.koinos.io',
+  jsonRPC: 'http://localhost:8080/',
   systemContracts: {
     koin: '15DJN4a8SgrbGhhGksSBASiSYjGnMU8dGL',
     vhp: '18tWNU7E4yuQzz7hMVpceb9ixmaWLVyQsr',
