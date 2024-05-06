@@ -1,7 +1,7 @@
-import { interfaces } from 'koilib'
+import { OperationJson } from 'koilib'
 import { getContract } from './contracts'
 
-export async function decodeOperations(operations: interfaces.OperationJson[]) {
+export async function decodeOperations(operations: OperationJson[]) {
   for (let index = 0; index < operations.length; index++) {
     const operation = operations[index]
     if (operation.call_contract) {

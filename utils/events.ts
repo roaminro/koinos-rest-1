@@ -1,10 +1,10 @@
-import { Serializer, interfaces, utils } from 'koilib'
+import { EventData, Serializer } from 'koilib'
 import { getContract } from './contracts'
 import koinosJson from '@koinos/proto-js/index.json'
 // @ts-ignore
 const serializer = new Serializer(koinosJson)
 
-export async function decodeEvents(events: interfaces.EventData[]) {
+export async function decodeEvents(events: EventData[]) {
   for (let index = 0; index < events.length; index++) {
     const event = events[index]
 

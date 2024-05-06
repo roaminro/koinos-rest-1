@@ -2,7 +2,7 @@ import { AppError, handleError } from '@/utils/errors'
 import { decodeEvents } from '@/utils/events'
 import { decodeOperations } from '@/utils/operations'
 import { getProvider } from '@/utils/providers'
-import { interfaces } from 'koilib'
+import { BlockJson, TransactionReceipt } from 'koilib'
 
 /**
  * @swagger
@@ -173,9 +173,9 @@ export async function GET(request: Request, { params }: { params: { transaction_
         block_items: {
           block_id: string
           block_height: string
-          block: interfaces.BlockJson
+          block: BlockJson
           receipt: {
-            transaction_receipts: interfaces.TransactionReceipt[]
+            transaction_receipts: TransactionReceipt[]
           }
         }[]
       }>('block_store.get_blocks_by_id', {

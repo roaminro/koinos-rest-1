@@ -1,5 +1,5 @@
 import { AppError, getErrorMessage, handleError } from '@/utils/errors'
-import { interfaces } from 'koilib'
+import { OperationJson } from 'koilib'
 import { NextRequest, NextResponse } from 'next/server'
 import { decodeOperations } from '@/utils/operations'
 
@@ -55,7 +55,7 @@ import { decodeOperations } from '@/utils/operations'
 export async function POST(request: NextRequest) {
   try {
     try {
-      const operations = (await request.json()) as interfaces.OperationJson[]
+      const operations = (await request.json()) as OperationJson[]
       const result = await decodeOperations(operations)
 
       return NextResponse.json(result)

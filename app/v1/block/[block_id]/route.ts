@@ -1,4 +1,4 @@
-import { interfaces } from 'koilib'
+import { BlockJson, EventData, TransactionReceipt } from 'koilib'
 import { AppError, handleError } from '@/utils/errors'
 import { getProvider } from '@/utils/providers'
 import { decodeEvents } from '@/utils/events'
@@ -127,10 +127,10 @@ export async function GET(request: Request, { params }: { params: { block_id: st
         block_items: {
           block_id: string
           block_height: string
-          block: interfaces.BlockJson
+          block: BlockJson
           receipt: {
-            events: interfaces.EventData[]
-            transaction_receipts: interfaces.TransactionReceipt[]
+            events: EventData[]
+            transaction_receipts: TransactionReceipt[]
           }
         }[]
       }>('block_store.get_blocks_by_id', {
@@ -143,10 +143,10 @@ export async function GET(request: Request, { params }: { params: { block_id: st
         block_items: {
           block_id: string
           block_height: string
-          block: interfaces.BlockJson
+          block: BlockJson
           receipt: {
-            events: interfaces.EventData[]
-            transaction_receipts: interfaces.TransactionReceipt[]
+            events: EventData[]
+            transaction_receipts: TransactionReceipt[]
           }
         }[]
       }>('block_store.get_blocks_by_height', {

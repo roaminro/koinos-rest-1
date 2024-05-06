@@ -1,5 +1,5 @@
 import { AppError, getErrorMessage, handleError } from '@/utils/errors'
-import { interfaces, Transaction } from 'koilib'
+import { Transaction, TransactionJson } from 'koilib'
 import { getProvider } from '@/utils/providers'
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
   try {
     try {
       const provider = getProvider()
-      const transaction = (await request.json()) as interfaces.TransactionJson
+      const transaction = (await request.json()) as TransactionJson
 
       const preparedTransaction = await Transaction.prepareTransaction(transaction, provider)
 

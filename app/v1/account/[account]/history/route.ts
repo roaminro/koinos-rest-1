@@ -3,7 +3,7 @@ import { AppError, getErrorMessage, handleError } from '@/utils/errors'
 import { decodeEvents } from '@/utils/events'
 import { decodeOperations } from '@/utils/operations'
 import { getProvider } from '@/utils/providers'
-import { interfaces } from 'koilib'
+import { BlockHeaderJson, EventData, TransactionJson, TransactionReceipt } from 'koilib'
 import { NextRequest, NextResponse } from 'next/server'
 
 /**
@@ -126,9 +126,9 @@ export type BlockReceiptJson = {
   network_bandwidth_used?: string
   compute_bandwidth_used?: string
   state_merkle_root?: string
-  events?: interfaces.EventData[]
+  events?: EventData[]
   token_events: string[]
-  transaction_receipts?: interfaces.TransactionReceipt[]
+  transaction_receipts?: TransactionReceipt[]
   logs?: string[]
   disk_storage_charged?: string
   network_bandwidth_charged?: string
@@ -147,7 +147,7 @@ export type TransactionReceiptJson = {
   network_bandwidth_used: string
   compute_bandwidth_used: string
   reverted: boolean
-  events: interfaces.EventData[]
+  events: EventData[]
   token_events: string[]
   logs: string[]
   amount?: string
@@ -155,12 +155,12 @@ export type TransactionReceiptJson = {
 
 export type HistoryRecord = {
   trx?: {
-    transaction: interfaces.TransactionJson
+    transaction: TransactionJson
     receipt: TransactionReceiptJson
   }
 
   block?: {
-    header: interfaces.BlockHeaderJson
+    header: BlockHeaderJson
     receipt: BlockReceiptJson
   }
 
