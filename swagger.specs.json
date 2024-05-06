@@ -1,5 +1,5 @@
 {
-  "apiFolder": "app/api",
+  "apiFolder": "app/v1",
   "schemaFolders": ["models"],
   "definition": {
     "openapi": "3.0.0",
@@ -45,20 +45,8 @@
         "description": "Groups endpoints that deal with fungible token operations, including querying token balances, total supply, general information, etc."
       },
       {
-        "name": "Koinos Account Protocol (KAP)",
-        "description": "Endpoints under the 'Koinos Account Protocol (KAP)' tag focus on the KAP name, including retrieving account addresses from names and vice versa."
-      },
-      {
-        "name": "KoinDX",
-        "description": "Dedicated to endpoints related to KoinDX features, covering token pair information and quotes for token swaps."
-      },
-      {
         "name": "Non Fungible Tokens",
         "description": "Encompasses all endpoints related to Non Fungible Tokens on the Koinos blockchain, including querying an account's NFT balance, total supply, NFT's uri, etc."
-      },
-      {
-        "name": "Nicknames",
-        "description": "Endpoints under this tag focus on the 'Nicknames' service, including querying the nicknames owned by an account and the account associated with a particular nickname."
       },
       {
         "name": "Transactions",
