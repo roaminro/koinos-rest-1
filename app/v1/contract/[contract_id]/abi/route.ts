@@ -7,7 +7,7 @@ import protobufjs from 'protobufjs'
 
 /**
  * @swagger
- * /api/contract/{contract_id}/abi:
+ * /v1/contract/{contract_id}/abi:
  *   get:
  *     tags: [Contracts]
  *     description: Returns the contract's ABI

@@ -5,7 +5,7 @@ import { utils } from 'koilib'
 
 /**
  * @swagger
- * /api/nft/{contract_id}/info:
+ * /v1/nft/{contract_id}/info:
  *   get:
  *     tags: [Non Fungible Tokens]
  *     description: Returns information about the non fungible token, such as its name, symbol, total supply, and URI.

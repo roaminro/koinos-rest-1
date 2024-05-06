@@ -3,7 +3,7 @@ import { getProvider } from '@/utils/providers'
 
 /**
  * @swagger
- * /api/chain/head_info:
+ * /v1/chain/head_info:
  *   get:
  *     tags: [Chain]
  *     description: Returns the chain's head info

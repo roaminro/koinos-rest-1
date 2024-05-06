@@ -3,7 +3,7 @@ import { getProvider } from '@/utils/providers'
 
 /**
  * @swagger
- * /api/chain/resource_limits:
+ * /v1/chain/resource_limits:
  *   get:
  *     tags: [Chain]
  *     description: Returns the chain's resource limits

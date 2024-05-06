@@ -4,7 +4,7 @@ import { getFTContract } from '@/utils/tokens'
 
 /**
  * @swagger
- * /api/token/{contract_id}/name:
+ * /v1/token/{contract_id}/name:
  *   get:
  *     tags: [Fungible Tokens]
  *     description: Returns the name of the fungible token

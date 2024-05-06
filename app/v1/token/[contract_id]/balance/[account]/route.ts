@@ -6,7 +6,7 @@ import { utils } from 'koilib'
 
 /**
  * @swagger
- * /api/token/{contract_id}/balance/{account}:
+ * /v1/token/{contract_id}/balance/{account}:
  *   get:
  *     tags: [Fungible Tokens]
  *     description: Returns the fungible token balance for a specific account

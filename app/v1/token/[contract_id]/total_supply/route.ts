@@ -5,7 +5,7 @@ import { utils } from 'koilib'
 
 /**
  * @swagger
- * /api/token/{contract_id}/total_supply:
+ * /v1/token/{contract_id}/total_supply:
  *   get:
  *     tags: [Fungible Tokens]
  *     description: Returns the total supply of the fungible token

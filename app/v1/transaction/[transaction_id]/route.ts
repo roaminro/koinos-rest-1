@@ -6,7 +6,7 @@ import { interfaces } from 'koilib'
 
 /**
  * @swagger
- * /api/transaction/{transaction_id}:
+ * /v1/transaction/{transaction_id}:
  *   get:
  *     tags: [Transactions]
  *     description: Returns detailed information about a specific transaction.

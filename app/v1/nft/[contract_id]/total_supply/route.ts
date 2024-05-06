@@ -4,7 +4,7 @@ import { getNFTContract } from '@/utils/tokens'
 
 /**
  * @swagger
- * /api/nft/{contract_id}/total_supply:
+ * /v1/nft/{contract_id}/total_supply:
  *   get:
  *     tags: [Non Fungible Tokens]
  *     description: Returns the total supply of the non fungible token.

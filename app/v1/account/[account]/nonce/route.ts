@@ -5,7 +5,7 @@ import { decode } from 'punycode'
 
 /**
  * @swagger
- * /api/account/{account}/nonce:
+ * /v1/account/{account}/nonce:
  *   get:
  *     tags: [Accounts]
  *     description: Returns the account's nonce

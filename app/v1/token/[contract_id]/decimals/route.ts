@@ -4,7 +4,7 @@ import { getFTContract } from '@/utils/tokens'
 
 /**
  * @swagger
- * /api/token/{contract_id}/decimals:
+ * /v1/token/{contract_id}/decimals:
  *   get:
  *     tags: [Fungible Tokens]
  *     description: Returns the number of decimals for a fungible token

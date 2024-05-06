@@ -4,7 +4,7 @@ import { getNFTContract } from '@/utils/tokens'
 
 /**
  * @swagger
- * /api/nft/{contract_id}/balance/{account}:
+ * /v1/nft/{contract_id}/balance/{account}:
  *   get:
  *     tags: [Non Fungible Tokens]
  *     description: Returns the non fungible token's account balance.

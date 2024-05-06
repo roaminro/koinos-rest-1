@@ -5,7 +5,7 @@ import { decodeOperations } from '@/utils/operations'
 
 /**
  * @swagger
- * /api/decode/operations:
+ * /v1/decode/operations:
  *   post:
  *     tags: [Decode]
  *     description: This endpoint takes an array of 'encoded' operations and returns an array of 'decoded' operations. Feel free to test the example request body and response below before testing out your own data.
