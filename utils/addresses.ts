@@ -1,19 +1,31 @@
-import { config } from '@/app.config'
 import { getKAPName } from '@/services/kap'
-import { utils } from 'koilib'
+import { Serializer, utils } from 'koilib'
 import { AppError } from './errors'
+import { getProvider } from './providers'
 import { getNicknameOwner } from '@/services/nicknames'
 
+let contractAddresses: Record<string, string> = {};
+
 export async function getAddress(str: string) {
-  // system contracts
-  if (config.systemContracts[str]) {
-    return config.systemContracts[str]
+  console.log(contractAddresses)
+  if (contractAddresses[str]) {
+    return contractAddresses[str];
   }
+
+  // system contracts
+  const contract = await getSystemAddress(str);
+
+  if (contract) {
+    contractAddresses[str] = contract;
+    return contract;
+  }
+
   // kap names
-  else if (str.endsWith('.koin')) {
+  if (str.endsWith('.koin')) {
     const kapName = await getKAPName(str)
 
     if (kapName) {
+      contractAddresses[str] = kapName.owner;
       return kapName.owner
     }
   }
@@ -22,6 +34,7 @@ export async function getAddress(str: string) {
   else if (str.startsWith('@')) {
     const owner = await getNicknameOwner(str)
     if (owner) {
+      contractAddresses[str] = owner;
       return owner
     }
   }
@@ -47,4 +60,56 @@ export async function getAccountAddress(str: string) {
   }
 
   return address
+}
+
+export async function getSystemAddress(str: string): Promise<string | undefined> {
+  const provider = getProvider()
+
+  const serializer = new Serializer(
+    {
+      nested: {
+        get_address_arguments: {
+          fields: {
+            name: {
+              type: "string",
+              id: 1,
+            },
+          },
+        },
+        get_address_result: {
+          fields: {
+            value: {
+              type: "address_record",
+              id: 1,
+            },
+          },
+        },
+        address_record: {
+          fields: {
+            name: {
+              type: "bytes",
+              id: 1,
+              options: {
+                "(koinos.btype)": "ADDRESS",
+              },
+            },
+          },
+        },
+      },
+    },
+    {
+      argumentsTypeName: "get_address_arguments",
+      returnTypeName: "get_address_result",
+    }
+  );
+
+  try {
+    let res = await provider.invokeSystemCall(serializer, 10001, {"name": str});
+
+    if ((res["value"] as any)["name"]) {
+      return String((res["value"] as any)["name"]);
+    }
+  } catch (error) {}
+
+  return
 }
