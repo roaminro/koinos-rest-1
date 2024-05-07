@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 /**
  * @swagger
- * /api/transaction/prepare:
+ * /v1/transaction/prepare:
  *   post:
  *     tags: [Transactions]
  *     description: This endpoint takes a transaction and an optional provider and/or payer, then returns a prepared transaction object.

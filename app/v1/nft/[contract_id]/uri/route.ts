@@ -4,7 +4,7 @@ import { getNFTContract } from '@/utils/tokens'
 
 /**
  * @swagger
- * /api/nft/{contract_id}/uri:
+ * /v1/nft/{contract_id}/uri:
  *   get:
  *     tags: [Non Fungible Tokens]
  *     description: Returns the URI associated with the non fungible token contract.

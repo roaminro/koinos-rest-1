@@ -3,7 +3,7 @@ import { getProvider } from '@/utils/providers'
 
 /**
  * @swagger
- * /api/chain/fork_heads:
+ * /v1/chain/fork_heads:
  *   get:
  *     tags: [Chain]
  *     description: Returns the chain's fork heads

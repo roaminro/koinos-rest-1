@@ -4,7 +4,7 @@ import { AppError, handleError, getErrorMessage } from '@/utils/errors'
 
 /**
  * @swagger
- * /api/contract/{contract_id}/read/{method}:
+ * /v1/contract/{contract_id}/{method}:
  *   get:
  *     tags: [Contracts]
  *     description: Read the contract contract using the method and arguments provided
@@ -89,7 +89,7 @@ export async function GET(
 
 /**
  * @swagger
- * /api/contract/{contract_id}/read/{method}:
+ * /v1/contract/{contract_id}/{method}:
  *   post:
  *     tags: [Contracts]
  *     description: Read the contract using the method and arguments provided
@@ -108,7 +108,6 @@ export async function GET(
  *        description: Method of the contract to call
  *        required: true
  *        example: balance_of
- *      - $ref: '#/components/parameters/X-JSON-RPC-URL'
  *     requestBody:
  *      description: Arguments for the method call
  *      required: true

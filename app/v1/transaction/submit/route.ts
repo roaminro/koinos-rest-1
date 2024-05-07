@@ -6,7 +6,7 @@ import { revalidatePath } from 'next/cache'
 
 /**
  * @swagger
- * /api/transaction/submit:
+ * /v1/transaction/submit:
  *   post:
  *     tags: [Transactions]
  *     description: This endpoint takes a transaction and submits it to the JSON RPC node.

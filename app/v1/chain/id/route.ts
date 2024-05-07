@@ -3,7 +3,7 @@ import { getProvider } from '@/utils/providers'
 
 /**
  * @swagger
- * /api/chain/id:
+ * /v1/chain/id:
  *   get:
  *     tags: [Chain]
  *     description: Returns the chain id

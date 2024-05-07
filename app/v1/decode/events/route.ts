@@ -5,7 +5,7 @@ import { decodeEvents } from '@/utils/events'
 
 /**
  * @swagger
- * /api/decode/events:
+ * /v1/decode/events:
  *   post:
  *     tags: [Decode]
  *     description: This endpoint takes an array of "encoded" events and returns an array of "decoded" events. Feel free to test the example request body and response below before testing out your own data.

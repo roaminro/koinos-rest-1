@@ -6,7 +6,7 @@ import { decodeOperations } from '@/utils/operations'
 
 /**
  * @swagger
- * /api/block/{block_id}:
+ * /v1/block/{block_id}:
  *   get:
  *     tags: [Blocks]
  *     description: Input a block id or number. Return data about that block and its receipt.
