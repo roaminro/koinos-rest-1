@@ -7,7 +7,6 @@ import { getNicknameOwner } from '@/services/nicknames'
 let contractAddresses: Record<string, string> = {};
 
 export async function getAddress(str: string) {
-  console.log(contractAddresses)
   if (contractAddresses[str]) {
     return contractAddresses[str];
   }
