@@ -17,18 +17,16 @@ RUN yarn build
 FROM node:18-alpine
 # update and install latest dependencies, add dumb-init package
 # add a non root user
-RUN apk update && apk upgrade && apk add dumb-init && adduser -D nextuser
+RUN apk update && apk upgrade && apk add dumb-init
 
 # set work dir as app
 WORKDIR /app
 # copy the public folder from the project as this is not included in the build process
-COPY --from=build --chown=nextuser:nextuser /app/public ./public
+COPY --from=build /app/public ./public
 # copy the standalone folder inside the .next folder generated from the build process
-COPY --from=build --chown=nextuser:nextuser /app/.next/standalone ./
+COPY --from=build /app/.next/standalone ./
 # copy the static folder inside the .next folder generated from the build process
-COPY --from=build --chown=nextuser:nextuser /app/.next/static ./.next/static
-# set non root user
-USER nextuser
+COPY --from=build /app/.next/static ./.next/static
 
 # expose 3000 on container
 EXPOSE 3000
