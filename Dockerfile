@@ -3,7 +3,7 @@
 FROM node:18-alpine AS build
 # Install dependencies only when needed
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat python3
 WORKDIR /app
 # Copy and install the dependencies for the project
 COPY package.json yarn.lock ./
@@ -17,7 +17,7 @@ RUN yarn build
 FROM node:18-alpine
 # update and install latest dependencies, add dumb-init package
 # add a non root user
-RUN apk update && apk upgrade && apk add dumb-init
+RUN apk update && apk upgrade && apk add dumb-init python3
 
 # set work dir as app
 WORKDIR /app
