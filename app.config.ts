@@ -1,22 +1,22 @@
+declare global {
+  namespace NodeJS {
+    interface ProcessEnv {
+      JSONRPC_URL: string,
+      KAP_ADDRESS: string,
+      NICKNAMES_ADDRESS: string
+    }
+  }
+}
+
 export type Config = {
   jsonRPC: string
-  systemContracts: Record<string, string>
   contracts: Record<string, string>
 }
 
 export const config: Config = {
-  jsonRPC: 'http://localhost:8080/',
-  systemContracts: {
-    koin: '15DJN4a8SgrbGhhGksSBASiSYjGnMU8dGL',
-    vhp: '18tWNU7E4yuQzz7hMVpceb9ixmaWLVyQsr',
-    pob: '159myq5YUhhoVWu3wsHKHiJYKPKGUrGiyv',
-    claim: '18zw3ZokdfHtudzaWAUnU4tUvKzKiJeN76',
-    governance: '19qj51eTbSFJYU7ZagudkpxPgNSzPMfdPX',
-    nameservice: '19WxDJ9Kcvx4VqQFkpwVmwVEy1hMuwXtQE',
-    resources: '1HGN9h47CzoFwU2bQZwe6BYoX4TM6pXc4b'
-  },
+  jsonRPC: process.env.JSONRPC_URL || 'http://localhost:8080/',
   contracts: {
-    kap: '13tmzDmfqCsbYT26C4CmKxq86d33senqH3',
-    nicknames:'1KD9Es7LBBjA1FY3ViCgQJ7e6WH1ipKbhz'
+    kap: process.env.KAP_ADDRESS || '13tmzDmfqCsbYT26C4CmKxq86d33senqH3',
+    nicknames: process.env.NICKNAMES_ADDRESS || '1KD9Es7LBBjA1FY3ViCgQJ7e6WH1ipKbhz'
   }
 }

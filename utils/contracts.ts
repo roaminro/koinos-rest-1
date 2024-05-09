@@ -169,8 +169,6 @@ let CONTRACTS_CACHE: Record<string, Contract> | undefined
 function getContractsCache(contractId: string): Contract | undefined {
   if (!CONTRACTS_CACHE) {
     CONTRACTS_CACHE = {
-      [config.systemContracts.koin]: getFTContract(config.systemContracts.koin),
-      [config.systemContracts.vhp]: getFTContract(config.systemContracts.vhp),
       [config.contracts.kap]: new Contract({
         id: config.contracts.kap,
         // @ts-ignore abi is compatible
