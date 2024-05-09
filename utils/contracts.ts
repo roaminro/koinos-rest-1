@@ -1,5 +1,5 @@
 import { ProtoDescriptor, convert } from '@roamin/koinos-pb-to-proto'
-import { Contract, interfaces, utils } from 'koilib'
+import { Abi, Contract, utils } from 'koilib'
 import { Root, Type, parse } from 'protobufjs'
 import { AppError } from './errors'
 import { getAddress } from './addresses'
@@ -31,7 +31,7 @@ export async function getContractId(str: string) {
   return contract_id
 }
 
-export function fixAbi(abi: interfaces.Abi): interfaces.Abi {
+export function fixAbi(abi: Abi): Abi {
   Object.keys(abi.methods).forEach((name) => {
     abi.methods[name] = {
       ...abi!.methods[name]

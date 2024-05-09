@@ -1,5 +1,5 @@
 import { AppError, getErrorMessage, handleError } from '@/utils/errors'
-import { interfaces } from 'koilib'
+import { TransactionJson } from 'koilib'
 import { getProvider } from '@/utils/providers'
 import { NextRequest, NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
     // Get the JSON RPC provider
     const provider = getProvider()
 
-    const transaction = (await request.json()) as interfaces.TransactionJson
+    const transaction = (await request.json()) as TransactionJson
 
     const { searchParams } = new URL(request.url)
     const broadcast = searchParams.get('broadcast') !== 'false'

@@ -1,7 +1,7 @@
 import { getContractId } from '@/utils/contracts'
 import { AppError, handleError } from '@/utils/errors'
 import { getProvider } from '@/utils/providers'
-import { interfaces } from 'koilib'
+import { Abi } from 'koilib'
 import { convert } from '@roamin/koinos-pb-to-proto'
 import protobufjs from 'protobufjs'
 
@@ -70,7 +70,7 @@ export async function GET(request: Request, { params }: { params: { contract_id:
       throw new AppError(`abi not available for contract ${contract_id}`)
     }
 
-    const abi: interfaces.Abi = {
+    const abi: Abi = {
       ...JSON.parse(response.meta.abi)
     }
 

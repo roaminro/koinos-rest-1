@@ -1,5 +1,5 @@
 import { AppError, getErrorMessage, handleError } from '@/utils/errors'
-import { interfaces } from 'koilib'
+import { EventData } from 'koilib'
 import { NextRequest, NextResponse } from 'next/server'
 import { decodeEvents } from '@/utils/events'
 
@@ -92,7 +92,7 @@ import { decodeEvents } from '@/utils/events'
 export async function POST(request: NextRequest) {
   try {
     try {
-      const events = (await request.json()) as interfaces.EventData[]
+      const events = (await request.json()) as EventData[]
       const result = await decodeEvents(events)
 
       return NextResponse.json(result)
